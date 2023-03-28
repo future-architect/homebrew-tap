@@ -5,20 +5,20 @@
 class Tftarget < Formula
   desc ""
   homepage ""
-  version "0.0.1"
+  version "0.0.2"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/future-architect/tftarget/releases/download/v0.0.1/tftarget_Darwin_x86_64.tar.gz"
-      sha256 "7376f70b13e3bd7322b6740bde35604dd354ae0c232fbd312dfdd590199c3660"
+      url "https://github.com/future-architect/tftarget/releases/download/v0.0.2/tftarget_Darwin_x86_64.tar.gz"
+      sha256 "704cb211047fc5124136e7bb3007706b7566d4c85892d35557a2af514fe39255"
 
       def install
         bin.install "tftarget"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/future-architect/tftarget/releases/download/v0.0.1/tftarget_Darwin_arm64.tar.gz"
-      sha256 "b35edae180f8f85cb464072ef91ccc4862506b7983565b2e95e826f13eb34f53"
+      url "https://github.com/future-architect/tftarget/releases/download/v0.0.2/tftarget_Darwin_arm64.tar.gz"
+      sha256 "36e15beafdd93823e79564add4323570579a7e1745e101b38db84767a579a9ad"
 
       def install
         bin.install "tftarget"
@@ -27,17 +27,17 @@ class Tftarget < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/future-architect/tftarget/releases/download/v0.0.1/tftarget_Linux_x86_64.tar.gz"
-      sha256 "5575d2b90c41e6392b4a62bdffd0fa7c1a467dccaacf21e878163f16e2cd1024"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/future-architect/tftarget/releases/download/v0.0.2/tftarget_Linux_arm64.tar.gz"
+      sha256 "218424fb362d2c8690829d1c9a265e7fe9a620c7c3a4788ed3c6f47d7482b298"
 
       def install
         bin.install "tftarget"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/future-architect/tftarget/releases/download/v0.0.1/tftarget_Linux_arm64.tar.gz"
-      sha256 "6c715802382849149fcf73461454048116cc6a2457666e19bbdcbf310b596abc"
+    if Hardware::CPU.intel?
+      url "https://github.com/future-architect/tftarget/releases/download/v0.0.2/tftarget_Linux_x86_64.tar.gz"
+      sha256 "e8b9fd8eefaee7e9ed3fc2a68e5d68cdc0cbfd87a28fc36a8b86b94e16b3ed4c"
 
       def install
         bin.install "tftarget"
