@@ -5,20 +5,20 @@
 class Tftarget < Formula
   desc ""
   homepage ""
-  version "0.0.7"
+  version "0.0.9"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/future-architect/tftarget/releases/download/v0.0.7/tftarget_Darwin_x86_64.tar.gz"
-      sha256 "7b5954550d6a959cc8c9ada83ba5f7c057b6907e5facbc1cc53a3d0f7db01374"
+      url "https://github.com/future-architect/tftarget/releases/download/v0.0.9/tftarget_0.0.9_darwin_amd64.tar.gz"
+      sha256 "aefaec8b184b0f9ee4b4f370d48265976ff012b795aa9d37249894fc2480c676"
 
       def install
         bin.install "tftarget"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/future-architect/tftarget/releases/download/v0.0.7/tftarget_Darwin_arm64.tar.gz"
-      sha256 "4c4da3a38efe16a44ab885b39e00937fe9669fbc400b811df792e9732c489957"
+      url "https://github.com/future-architect/tftarget/releases/download/v0.0.9/tftarget_0.0.9_darwin_arm64.tar.gz"
+      sha256 "596dddf11b0dc6bb9334178d54ea0152c24afe2043f920b36e9f5f1427c951c3"
 
       def install
         bin.install "tftarget"
@@ -27,20 +27,24 @@ class Tftarget < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/future-architect/tftarget/releases/download/v0.0.7/tftarget_Linux_arm64.tar.gz"
-      sha256 "9a2cad8b2a11fea7990b28e90c795dbadc133694593eb5191556ae9afefaad93"
+    if Hardware::CPU.intel?
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/future-architect/tftarget/releases/download/v0.0.9/tftarget_0.0.9_linux_amd64.tar.gz"
+        sha256 "a0a51fc5f19da893ec00382f534200cf4940db451856dc4fb5431a87c81a3a34"
 
-      def install
-        bin.install "tftarget"
+        def install
+          bin.install "tftarget"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/future-architect/tftarget/releases/download/v0.0.7/tftarget_Linux_x86_64.tar.gz"
-      sha256 "e99dd1edca7a061519287f0571cf63d8e71289557a3b770a5e1cf1bf8334bd1f"
+    if Hardware::CPU.arm?
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/future-architect/tftarget/releases/download/v0.0.9/tftarget_0.0.9_linux_arm64.tar.gz"
+        sha256 "4423ab910c279f67be8cc48dd5029331fe51a3c228a324a0bccdaa9440336832"
 
-      def install
-        bin.install "tftarget"
+        def install
+          bin.install "tftarget"
+        end
       end
     end
   end
